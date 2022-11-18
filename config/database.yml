@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
+  adapter:  mysql2
   database: heritage_38560_production
-  username: heritage_38560
-  password: <%= ENV['HERITAGE_38560_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
