@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<p><a href="">トップページへ</a></p>
+<%=link_to 'トップページに戻る', root_path, class:"back-btn" %>
 <meta charset="utf-8">
 <title> Map </title>
 <meta charset="utf-8">
@@ -31,6 +31,7 @@ var i = 0;
       center: {lat: 37.172873, lng: 138.499854},
       zoom: 5
     });
+    
 
     var marker = new google.maps.Marker({
       position: {lat: 34.298825870889345, lng: 132.32000015712674},
@@ -135,15 +136,20 @@ label: {
       position: {lat: 36.75728901650115, lng: 139.60389961793402},
       map: map,
       animation: google.maps.Animation.DROP,
-       icon: {
-    scaledSize: new google.maps.Size(30, 30) //👈追記
-  },
 label: {
 		text: '日光の社寺',                           //ラベル文字
 		color: '#FFFFFF',                    //文字の色
 		fontSize: '20px',
 },
     });
+
+  // 情報ウィンドウの生成
+
+   GEvent.addListener(marker, 'click', function() {
+        marker.openInfoWindow(
+             document.createTextNode("openInfoWindow for marker"));
+      });
+
   }
 </script> 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0V4mX0q1S_FfUAlEC_ETKMz0T6MGZTU&callback=initMap" async defer></script>
