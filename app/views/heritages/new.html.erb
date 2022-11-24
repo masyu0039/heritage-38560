@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<p><a href="">トップページへ</a></p>
+<meta charset="utf-8">
+<title> Map </title>
+<meta charset="utf-8">
+<style>
+/* マップを表示する div 要素の高さを必ず明示的に指定します。 */
+#map {
+  height: 500px;
+  width: 1440px;
+}
+
+</style>
+</head>
+  
+<body>
+<div id="map"></div><!-- 地図を表示する div 要素（id="map"）-->
+<script>
+var map = null;
+var infowindow = new google.maps.InfoWindow();
+var gmarkers = [];
+var i = 0;
+
+
+
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 37.172873, lng: 138.499854},
+      zoom: 5
+    });
+
+    var marker = new google.maps.Marker({
+      position: {lat: 34.298825870889345, lng: 132.32000015712674},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '厳島神社',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+},
+  });
+
+    var marker = new google.maps.Marker({
+      position: {lat: 34.614270835784296, lng: 135.7357255127965},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '法隆寺',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+},
+    });
+
+    var marker = new google.maps.Marker({
+      position: {lat: 34.83953358408353, lng: 134.6939079347901},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '姫路城',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+},
+    });
+
+    var marker = new google.maps.Marker({
+      position: {lat: 35.106536811653655,  lng: 132.43882170124115},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '石見銀山',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+} 
+    });
+
+    var marker = new google.maps.Marker({
+      position: {lat: 30.355021320491037,  lng: 130.51173251412956},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '屋久島',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+} 
+    });
+
+    var marker = new google.maps.Marker({
+      position: {lat: 40.48640659129467, lng: 140.165876639826},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '白神山地',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+} 
+    });
+
+     var marker = new google.maps.Marker({
+      position: {lat: 36.25800424840745, lng: 136.90620820455467},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '白川郷',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+} 
+    });
+
+     var marker = new google.maps.Marker({
+      position: {lat: 44.20033207806741,  lng: 145.23963154504543},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '知床',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+} 
+    });
+
+    var marker = new google.maps.Marker({
+      position: {lat: 27.076190755232318, lng: 142.1030229650477},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+		text: '小笠原諸島',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+} 
+    });
+
+      var marker = new google.maps.Marker({
+      position: {lat: 36.75728901650115, lng: 139.60389961793402},
+      map: map,
+      animation: google.maps.Animation.DROP,
+       icon: {
+    scaledSize: new google.maps.Size(30, 30) //👈追記
+  },
+label: {
+		text: '日光の社寺',                           //ラベル文字
+		color: '#FFFFFF',                    //文字の色
+		fontSize: '20px',
+},
+    });
+  }
+</script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0V4mX0q1S_FfUAlEC_ETKMz0T6MGZTU&callback=initMap" async defer></script>
+</body>
+</html>
