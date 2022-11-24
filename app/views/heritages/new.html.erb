@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
 <%=link_to 'トップページに戻る', root_path, class:"back-btn" %>
+<head>
+<p>住所や駅名、目印などで検索できます。</p>
+<form onsubmit="return false;">
+  <input type="text" value="" id="address">
+  <button type="button" value="検索" id="map_button">検索</button>
+</form>
 <meta charset="utf-8">
 <title> Map </title>
 <meta charset="utf-8">
@@ -34,7 +39,7 @@ var i = 0;
     
 
     var marker = new google.maps.Marker({
-      position: {lat: 34.298825870889345, lng: 132.32000015712674},
+      position: {lat: 34.29611708884963, lng: 132.3198174120254},
       map: map,
       animation: google.maps.Animation.DROP,
 label: {
