@@ -30,6 +30,16 @@
 - belongs_to :user
 - has_many :comments
 
+## maps table
+
+| Column                              | Type       | Options                        |
+|-------------------------------------|------------|--------------------------------|
+| user                                | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+
 ## comments table
 
 | Column      | Type       | Options                        |

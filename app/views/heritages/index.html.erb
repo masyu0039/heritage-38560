@@ -44,11 +44,6 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
-        </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
@@ -91,7 +86,7 @@
           <div class="carousel-caption">
           <% if user_signed_in? %>
             <h1>世界遺産を探す</h1>
-            <p><%= link_to 'MAP', new_heritage_path, class: "btn btn-lg btn-primary" %></p>
+            <p><%= link_to 'MAP', maps_path, class: "btn btn-lg btn-primary" %></p>
             <% else %>
             <h1>世界遺産</h1>
             <% end %>
