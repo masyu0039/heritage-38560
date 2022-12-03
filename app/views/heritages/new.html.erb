@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<%=link_to 'トップページに戻る', root_path, class:"back-btn" %>
+<head>
+<p>住所や目印などで検索できます。</p>
+<form onsubmit="return false;">
+  <input type="text" value="" id="address">
+  <button type="button" value="検索" id="map_button">検索</button>
+</form>
+<meta charset="utf-8">
+<title> Map </title>
+<meta charset="utf-8">
+<style>
+/* マップを表示する div 要素の高さを必ず明示的に指定します。 */
+#map {
+  height: 500px;
+  width: 1440px;
+}
+
+</style>
+</head>
+  
+<body>
+<div id="map"></div><!-- 地図を表示する div 要素（id="map"）-->
+<script>
+var map;
+var infoWindow;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 37.172873, lng: 138.499854},
+      zoom: 5
+    });
+
+      marker1  = new google.maps.Marker({
+      position: {lat: 34.29611708884963, lng: 132.3198174120254},
+      map: map,
+      animation: google.maps.Animation.DROP,
+
+label: {
+    text: '厳島神社',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+},
+  });
+
+     marker2 = new google.maps.Marker({
+      position: {lat: 34.614270835784296, lng: 135.7357255127965},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '法隆寺',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+},
+    });
+
+     marker3 = new google.maps.Marker({
+      position: {lat: 34.83953358408353, lng: 134.6939079347901},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '姫路城',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+},
+    });
+
+     marker4 = new google.maps.Marker({
+      position: {lat: 35.106536811653655,  lng: 132.43882170124115},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '石見銀山',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+} 
+    });
+
+     marker5 = new google.maps.Marker({
+      position: {lat: 30.355021320491037,  lng: 130.51173251412956},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '屋久島',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+} 
+    });
+
+     marker6 = new google.maps.Marker({
+      position: {lat: 40.48640659129467, lng: 140.165876639826},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '白神山地',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+} 
+    });
+
+      marker7 = new google.maps.Marker({
+      position: {lat: 36.25800424840745, lng: 136.90620820455467},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '白川郷',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+} 
+    });
+
+      marker8 = new google.maps.Marker({
+      position: {lat: 44.20033207806741,  lng: 145.23963154504543},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '知床',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+} 
+    });
+
+      marker9 = new google.maps.Marker({
+      position: {lat: 27.076190755232318, lng: 142.1030229650477},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '小笠原諸島',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+} 
+    });
+
+      marker10 = new google.maps.Marker({
+      position: {lat: 36.75728901650115, lng: 139.60389961793402},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '日光の社寺',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+},
+  });
+
+     marker11 = new google.maps.Marker({
+      position: {lat: 35.36167463300106, lng: 138.72710586204434},
+      map: map,
+      animation: google.maps.Animation.DROP,
+label: {
+    text: '富士山',                           //ラベル文字
+    color: '#FFFFFF',                    //文字の色
+    fontSize: '20px',
+},
+  });
+
+  infoWindow1 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    厳島神社
+    </div>
+    <div class="custom-info-item address">
+    〒739-0588 広島県廿日市市宮島町１−１
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "world.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E5%8E%B3%E5%B3%B6%E7%A5%9E%E7%A4%BE" target="_blank">wiki</a>
+    </div>
+</div>`, // 吹き出しに表示する内容
+  });
+ marker1.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow1.open(map, marker1); // 吹き出しの表示
+    });
+
+infoWindow2 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    法隆寺地域の仏教建造物
+    </div>
+    <div class="custom-info-item address">
+    〒636-0115 奈良県生駒郡斑鳩町法隆寺山内１−１−１
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "法隆寺 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E6%B3%95%E9%9A%86%E5%AF%BA" target="_blank">wiki</a>
+    </div>
+</div>`, // 吹き出しに表示する内容
+  });
+ marker2.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow2.open(map, marker2); // 吹き出しの表示
+    });
+
+  infoWindow3 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    姫路城(白鷺城)
+    </div>
+    <div class="custom-info-item address">
+    〒670-0012 兵庫県姫路市本町６８
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "姫路 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E5%A7%AB%E8%B7%AF%E5%9F%8E" target="_blank">wiki</a>
+    </div>
+</div>`, // 吹き出しに表示する内容
+  });
+ marker3.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow3.open(map, marker3); // 吹き出しの表示
+    });
+
+  infoWindow4 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    石見銀山
+    </div>
+    <div class="custom-info-item address">
+    〒694-0305 島根県大田市大森町イ１５９７−３
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "石見銀山 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E7%9F%B3%E8%A6%8B%E9%8A%80%E5%B1%B1" target="_blank">wiki</a>
+    </div>
+</div>`,  // 吹き出しに表示する内容
+  });
+ marker4.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow4.open(map, marker4); // 吹き出しの表示
+    });
+
+  infoWindow5 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    屋久島
+    </div>
+    <div class="custom-info-item address">
+    鹿児島県熊毛郡屋久島町
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "屋久島 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E5%B1%8B%E4%B9%85%E5%B3%B6" target="_blank">wiki</a>
+    </div>
+</div>`,// 吹き出しに表示する内容
+  });
+ marker5.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow5.open(map, marker5); // 吹き出しの表示
+    });
+
+  infoWindow6 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    白神山地
+    </div>
+    <div class="custom-info-item address">
+    〒036-1424 青森県中津軽郡西目屋村川原平
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "白神山地 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E7%99%BD%E7%A5%9E%E5%B1%B1%E5%9C%B0" target="_blank">wiki</a>
+    </div>
+</div>`,// 吹き出しに表示する内容
+  });
+ marker6.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow6.open(map, marker6); // 吹き出しの表示
+    });
+
+  infoWindow7 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    白川郷・五箇山の合掌造り集落
+    </div>
+    <div class="custom-info-item address">
+    〒501-5627 岐阜県大野郡白川村荻町
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "白川郷 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E7%99%BD%E5%B7%9D%E9%83%B7" target="_blank">wiki</a>
+    </div>
+</div>`, // 吹き出しに表示する内容
+  });
+ marker7.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow7.open(map, marker7); // 吹き出しの表示
+    });
+
+  infoWindow8 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    知床
+    </div>
+    <div class="custom-info-item address">
+    〒099-4356 北海道斜里郡斜里町遠音別村
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "知床 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E7%9F%A5%E5%BA%8A" target="_blank">wiki</a>
+    </div>
+</div>`, // 吹き出しに表示する内容
+  });
+ marker8.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow8.open(map, marker8); // 吹き出しの表示
+    });
+
+  infoWindow9 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content:  `<div class="custom-info">
+    <div class="custom-info-item name">
+    小笠原諸島
+    </div>
+    <div class="custom-info-item address">
+    〒不明
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "小笠原 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E5%B0%8F%E7%AC%A0%E5%8E%9F%E8%AB%B8%E5%B3%B6" target="_blank">wiki</a>
+    </div>
+</div>`,// 吹き出しに表示する内容
+  });
+ marker9.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow9.open(map, marker9); // 吹き出しの表示
+    });
+
+   infoWindow10 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    日光の社寺
+    </div>
+    <div class="custom-info-item address">
+    〒321-1431 栃木県日光市山内
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "日光の社寺 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E6%97%A5%E5%85%89%E3%81%AE%E7%A4%BE%E5%AF%BA" target="_blank">wiki</a>
+    </div>
+</div>`, // 吹き出しに表示する内容
+  });
+ marker10.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow10.open(map, marker10); // 吹き出しの表示
+    });
+
+    infoWindow11 = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: `<div class="custom-info">
+    <div class="custom-info-item name">
+    富士山‐信仰の対象と芸術の源泉‐
+    </div>
+    <div class="custom-info-item address">
+    〒418-0112 静岡県富士宮市北山
+    </div>
+    <div class="custom-info-item tel">
+    <%= image_tag "富士山 小.png", class:"custom-info-item tel" %>
+    </div>
+    <div class="custom-info-item google-map">
+    <a href="https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%A3%AB%E5%B1%B1" target="_blank">wiki</a>
+    </div>
+</div>`, // 吹き出しに表示する内容
+  });
+ marker11.addListener('click', function() { // マーカーをクリックしたとき
+     infoWindow11.open(map, marker11); // 吹き出しの表示
+    });
+
+  }
+
+</script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0V4mX0q1S_FfUAlEC_ETKMz0T6MGZTU&callback=initMap" async defer></script>
+</body>
+</html>
