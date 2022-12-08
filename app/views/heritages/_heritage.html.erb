@@ -1,6 +1,6 @@
- <div class="content_post" style="background-image: url(<%= image_tag heritage.image.variant(resize: '500x500'), class: "heritage-img" if heritage.image.attached? %>);">
+ <div class="content_post" style="background-image: <%= link_to image_tag(heritage.image,class: "content_post"), heritage_path(heritage) if heritage.image.attached?%>;">
      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
+        <span><h3>…</h3></span>
         <ul class="more_list">
         <li>
             <%= link_to '詳細', heritage_path(heritage.id), method: :get %>
