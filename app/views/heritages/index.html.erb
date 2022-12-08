@@ -130,11 +130,12 @@
   </div><!-- /.container -->
 
 <div class="contents row">
+<h2> 投稿一覧 </h2>
   <% @heritages.each do |heritage| %>
-     <%= render partial: "tweet", locals: { tweet: tweet } %>
+     <%= render partial: "heritage", locals: { heritage: heritage } %>
   <% end %>
+  </div>
 </div>
-
   <!-- FOOTER -->
   <footer class="footer">
     <p class="float-end"><a href="#">top</a></p>

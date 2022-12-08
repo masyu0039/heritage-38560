@@ -1,0 +1,24 @@
+ <div class="content_post" style="background-image: url(<%= image_tag heritage.image.variant(resize: '500x500'), class: "heritage-img" if heritage.image.attached? %>);">
+     <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+        <li>
+            <%= link_to '詳細', heritage_path(heritage.id), method: :get %>
+          </li>
+          <% if user_signed_in? && current_user.id == heritage.user_id %>
+        <li>
+            <%= link_to '編集', edit_heritage_path(heritage.id), method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', heritage_path(heritage.id), method: :delete %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <p><%= heritage.title %></p>
+      <span class="name">
+      <a href="/users/<%= heritage.user.id %>">
+          <span>投稿者</span><%= heritage.user.nickname %>
+        </a>
+      </span>
+    </div>

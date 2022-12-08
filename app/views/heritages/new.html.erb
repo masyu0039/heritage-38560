@@ -20,7 +20,7 @@
     <h3>世界遺産</h3>
     <%= form_with(model: @heritage, local: true) do |form| %>
       <%= form.text_field :title, placeholder: "タイトル" %>
-      <%= form.text_field :image, placeholder: "写真" %>
+      <%= form.file_field :image, placeholder: "写真を選択" %>
       <%= form.text_field :catch_copy, placeholder: "キャッチコピー" %>
       <%= form.text_area :concept, placeholder: "コメント", rows: "10" %>
       <%= form.submit "投稿" %>
