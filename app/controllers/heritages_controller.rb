@@ -1,6 +1,7 @@
 class HeritagesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
-  before_action :move_to_index, except: [:index, :show, :search]
+  before_action :set_heritage, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
   def index
     @heritages = Heritage.includes(:user)

@@ -1,0 +1,65 @@
+<main class="main">
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">世界遺産view</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a><%=link_to 'トップページ', root_path, class:"nav-link active" %></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </nav>
+</header>
+  <div class="inner">
+    <div class="prototype__wrapper">
+      <p class="prototype__hedding">
+        <%= @heritage.title %>
+        <div class = "heritage__user">
+      </p>
+     <%= "#{current_user.nickname}さん"%>
+      <% if current_user == @heritage.user%>
+      </div>
+        <div class="prototype__manage">
+          <%= link_to "編集する", edit_heritage_path(@heritage), class: :prototype__btn %>
+          <%= link_to "削除する", heritage_path(@heritage), method: :delete, class: :prototype__btn %>
+        </div>
+      <% end %>
+      <div class="heritage__image">
+        <%= image_tag @heritage.image %>
+      </div>
+      <div class="_body">
+        <div class="prototype__detail">
+          <p class="detail__title">キャッチコピー</p>
+          <p class="detail__message">
+            <%= @heritage.catch_copy %>
+          </p>
+        </div>
+        <div class="prototype__detail">
+          <p class="detail__title">コンセプト</p>
+          <p class="detail__message">
+            <%= @heritage.concept %>
+          </p>
+        </div>
+      </div>
+      <div class="heritage__comments">
+        <% if user_signed_in? %>
+          <%= form_with model: [@heritage], local: true do |f|%>
+            <div class="field">
+              <%= f.label :content, "コメント" %><br />
+              <%= f.text_field :content, id:"comment_content" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "コメント", class: :comment__btn  %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
