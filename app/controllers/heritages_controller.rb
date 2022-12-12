@@ -19,6 +19,23 @@ class HeritagesController < ApplicationController
       end
     end
 
+    def destroy
+      heritage = Heritage.find(params[:id])
+      heritage.destroy
+    end
+
+    def edit
+    end
+
+    def update
+      heritage = Heritage.find(params[:id])
+      heritage.update(heritage_params)
+    end
+  
+    def show
+      
+    end
+
   private
 
   def heritage_params
