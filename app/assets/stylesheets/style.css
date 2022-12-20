@@ -1091,6 +1091,10 @@ footer p {
   margin-left: 400px;
 }
 
+.destroy{
+  margin-left: 400px;
+}
+
  /* スマホ表示 */
  @media (max-width: 599px) {
   .logo {
