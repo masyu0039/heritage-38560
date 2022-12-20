@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
           has_many :heritages
 
-          with_options presence: true do
+        with_options presence: true do
         validates :nickname
         validates :profile
   end
