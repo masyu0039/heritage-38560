@@ -1,0 +1,31 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">世界遺産view</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a><%=link_to 'トップページ', root_path, class:"nav-link active" %></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </nav>
+</header>
+  <div class= "edit">
+    <div class="contents row">
+      <div class="container">
+    <h3>編集する</h3>
+    <%= form_with(model: @heritage, local: true) do |form| %>
+      <%= form.text_field :title, placeholder: "タイトル" %>
+      <%= form.file_field :image, placeholder: "写真を選択" %>
+      <%= form.text_field :catch_copy, placeholder: "キャッチコピー" %>
+      <%= form.text_area :concept, placeholder: "コメント", rows: "10" %>
+      <%= form.submit "変更", class: :edit__btn %>
+    <% end %>
+    </div>
+  </div>
+</div>
