@@ -47,18 +47,6 @@
           </p>
         </div>
       </div>
-      <div class="heritage__comments">
-        <% if user_signed_in? %>
-          <%= form_with model: [@heritage], local: true do |f|%>
-            <div class="field">
-              <%= f.label :content, "コメント" %><br />
-              <%= f.text_field :content, id:"comment_content" %>
-            </div>
-            <div class="actions">
-              <%= f.submit "コメント", class: :comment__btn  %>
-            </div>
-          <% end %>
-        <% end %>
       </div>
     </div>
   </div>

@@ -1,11 +1,12 @@
  <div class="content_post" style="background-image: <%= link_to image_tag(heritage.image,class: "content_post"), heritage_path(heritage) if heritage.image.attached?%>;">
      <div class="more">
+     <% if user_signed_in? && current_user.id == heritage.user_id %>
         <span><h3>…</h3></span>
         <ul class="more_list">
         <li>
             <%= link_to '詳細', heritage_path(heritage.id), method: :get %>
           </li>
-          <% if user_signed_in? && current_user.id == heritage.user_id %>
+          
         <li>
             <%= link_to '編集', edit_heritage_path(heritage.id), method: :get %>
           </li>
@@ -16,9 +17,11 @@
         </ul>
       </div>
       <p><%= heritage.title %></p>
+      <% if user_signed_in? %>
       <span class="name">
       <a href="/users/<%= heritage.user.id %>">
           <span>投稿者</span><%= heritage.user.nickname %>
+          <% end %>
         </a>
       </span>
     </div>
