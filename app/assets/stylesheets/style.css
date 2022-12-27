@@ -617,7 +617,7 @@ ul li {
   .row .grid-10,
   .row .grid-11,
   .row .grid-12 {
-    float: none;
+    action: none;
     width: 100% !important;
     margin: 0 !important;
     position: static !important;
@@ -648,10 +648,8 @@ body {
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3
+{
   line-height: 1.57;
   letter-spacing: 0.15em;
   font-size: 16px;
@@ -660,11 +658,21 @@ h6 {
   margin: 0;
 }
 
+h4{
+  line-height: 1.57;
+  letter-spacing: 0.15em;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  margin: 0;
+  
+}
+
 body {
   line-height: 1.57;
   letter-spacing: 0.15em;
   font-size: 16px;
-  color: #ddd;
+  color: #D8D8D8;
   font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
   margin: 0;
 }
@@ -744,13 +752,17 @@ header.header div.header__bar.row div.grid-6 a.post:hover {
   right: 0;
 }
 
+
+
 div.contents.row h2 {
+  height: 100px;
   color: #222;
   background-image: url("");
   margin: 0;
   padding:20px ;
-  margin-left: 600px;
-  width: 8em
+  width: 8em;
+  position:relative;
+  text-align: center;
 }
 
 img {
@@ -763,15 +775,15 @@ div.contents.row .new_user {
 }
 
 div.contents.row div.content_post {
-  margin:  0;
+  margin: 20px 0;
   padding: 30px;
   margin-top: 5%;
-  margin-left: 350px;
   position: relative;
+  margin-left: 50%;
   height: 400px;
   color: #fff;
   background-size: cover;
-  background-position:  center;
+  background-position: center center;
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
 }
@@ -814,7 +826,7 @@ div.contents.row div.content_post .more:hover ul.more_list {
 
 div.contents.row div.content_post .more ul.more_list {
   position: absolute;
-  text-align: left;
+  text-align: right;
   width: 80px;
   right: 0;
   font-size: 12px;
@@ -891,6 +903,7 @@ div.contents.row .success h3 {
   margin: 10px auto;
 }
 
+
 form input,
 form textarea {
   width: 100%;
@@ -902,14 +915,15 @@ form textarea {
 }
 
 .form__btn {
-  width: 70%;
+  width: 80%;
   background-color: #57C3E9;
   border-radius: 20px;
   color: #ddd;
   border: 0;
-  margin-left: 150px;
+  margin-left: 130px;
   font-size: 30px;
 }
+
 .edit__btn {
   width: 70%;
   background-color: #57C3E9;
@@ -921,12 +935,12 @@ form textarea {
 }
 
 .comment__btn {
-  width: 80%;
+  width: 70%;
   background-color: #57C3E9;
   border-radius: 20px;
   color: #ddd;
   border: 0;
-  margin-left: 125px;
+  margin-left: 50px;
   font-size: 30px;
 }
 
@@ -938,7 +952,7 @@ form input[type="submit"]:hover {
   margin: 20px 0;
   padding: 30px;
   box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
-  background-color: #aaa;
+  background-color: #f6f6f6;
   box-sizing: border-box;
 }
 
@@ -1017,6 +1031,7 @@ form input[type="submit"]:hover {
   margin-left: 150px;
 }
 
+
 .comments {
   padding: 5px;
   margin-top: 15px;
@@ -1034,6 +1049,7 @@ footer {
   margin: 30px auto;
   padding: 10px;
   color: #000;
+  margin-left: 10%;
 }
 
 footer p {
@@ -1054,6 +1070,9 @@ footer p {
   width: 10%;
 }
 
+.destroy{
+  margin-left: 400px;
+  }
 
 .card {
   width: calc((100% - 50px) / 3);
@@ -1084,32 +1103,11 @@ footer p {
 }
 
 .edit {
-  margin-left: 400px;
+  position: absolute;
+  margin-top: 3%;
+ margin-left: 28%;
 }
 
 .update {
   margin-left: 400px;
-}
-
-.destroy{
-  margin-left: 400px;
-}
-
- /* スマホ表示 */
- @media (max-width: 599px) {
-  .logo {
-    width: 120px;
-  }
-.card {
-  width: 100%;
-  margin-bottom: 60px;
-}
-.card__title {
-  font-size: 18px;
-}
-.card__summary {
-  font-size: 14px;
-}
-.heritage_image{
-  width: 100%;
 }
