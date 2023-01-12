@@ -22,7 +22,7 @@
         <%= @heritage.title %>
         <div class = "heritage__user">
       </p>
-     <%= "#{current_user.nickname}さん"%>
+     <% @heritage.user.nickname %>
       <% if current_user == @heritage.user%>
       </div>
         <div class="prototype__manage">

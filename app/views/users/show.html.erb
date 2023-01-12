@@ -23,9 +23,7 @@
 <h5>[プロフィール]</h5>
   <p class="plofile"><%= @user.profile %> </p>
   </div>
-  <% @heritages.each do |heritage| %>
  <%= render partial: 'heritages/heritage', collection: @user.heritages %>
     </div>
-  <% end %>
   </div>
 </div>
