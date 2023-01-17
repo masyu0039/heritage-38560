@@ -588,11 +588,7 @@ ul li {
   *zoom: 1;
 }
 
-.row .row.collapse:before,
-.row .row.collapse:after {
-  content: " ";
-  display: table;
-}
+
 
 .row .row.collapse:after {
   clear: both;
