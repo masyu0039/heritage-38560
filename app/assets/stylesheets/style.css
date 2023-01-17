@@ -538,11 +538,7 @@ ul li {
   width: 98.2%;
 }
 
-.row:before,
-.row:after {
-  content: " ";
-  display: table;
-}
+
 
 .row:after {
   clear: both;
