@@ -539,7 +539,6 @@ ul li {
 }
 
 
-
 .row:after {
   clear: both;
 }
@@ -771,7 +770,7 @@ div.contents.row div.content_post {
   padding: 30px;
   margin-top: 5%;
   position: relative;
-  margin-left: 50%;
+  margin-left: 450px;
   height: 400px;
   color: #fff;
   background-size: cover;
